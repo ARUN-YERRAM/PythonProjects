@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
 import csv
-url = "https://www.bbc.com/business/technology-of-business"
+url = "https://www.bbc.com/technology"
 
 response = requests.get(url)
 html = response.content
@@ -10,7 +10,7 @@ soup = BeautifulSoup(html, 'html.parser')
 
 elements = soup.find_all(["h2", "a"])
 
-with open('technology-of-business.csv', 'w', newline='', encoding='utf-8') as file:
+with open('headlines.csv', 'w', newline='', encoding='utf-8') as file:
     writer = csv.writer(file)
     writer.writerow(['Headline', 'URL'])
     
@@ -19,4 +19,4 @@ with open('technology-of-business.csv', 'w', newline='', encoding='utf-8') as fi
         headline_url = element.get('href')
         writer.writerow([headline_text, headline_url])
     
-print("Data scraping complete and saved to technology-of-business.csv.")
+print("Data scraping complete and saved to headlines;csv.")
