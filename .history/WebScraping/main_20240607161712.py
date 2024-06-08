@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 
-url = "https://www.timesofindia.com/news"
+url = "https://www.bbc.com/news"
 
 # Make the request without proxies
 r = requests.get(url)
@@ -12,8 +12,8 @@ soup = BeautifulSoup(r.text, 'html.parser')
 # Get the prettified HTML content
 html_content = soup.prettify()
 
-# Save the HTML content to a file named 'times.html'
-with open("times.html", "w", encoding="utf-8") as file:
+# Save the HTML content to a file named 'bbc.html'
+with open("bbc.html", "w", encoding="utf-8") as file:
     file.write(html_content)
 
-print("HTML content saved to times.html")
+print("HTML content saved to bbc.html")
